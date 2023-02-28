@@ -25,7 +25,7 @@ pip install -r ./requirements.txt
 
 - 伪代码窗口右键：
 
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInPseudocode.png" width="880"/>
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInPseudocode.png" width="860"/>
 
 - 菜单栏：Edit $\Rightarrow$ WPeChatGPT
 
