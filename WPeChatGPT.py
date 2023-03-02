@@ -90,7 +90,7 @@ class PythonHandler(idaapi.action_handler_t):
                 0)
         # English
         else:
-            query_model_async("Parse the following C pseudocode and restore with python3 code.(Use English to answer me, and answer before plus '---GPT_START---' the end of the string plus '---GPT_END---' string)\n"
+            query_model_async("Parse the following C pseudocode and restore with python3 code.(Use English to answer me, and answer before plus '---GPT_Python_START---' the end of the string plus '---GPT_Python_END---' string)\n"
                               + str(decompiler_output),
                               functools.partial(comment_callback, address=lastAddr, view=v, cmtFlag=1, printFlag=1), 
                               0)
