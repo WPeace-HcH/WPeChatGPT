@@ -36,7 +36,8 @@ pip install -r ./requirements.txt
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInEdit.png" width="360"/>
 ## 示例
-![image](https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/example.gif)
+![image](https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/useExample.gif)  
+![image](https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/resultExample.gif)
 ## 联系我
 如果使用插件时遇到问题或有任何疑问，欢迎留言或发送邮件联系我。
 ## Acknowledgements
