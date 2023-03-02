@@ -20,7 +20,7 @@ pip install -r ./requirements.txt
 2. 修改脚本 `WPeChatGPT.py` 添加 API key 到变量 ***openai.api_key***。
 3. 复制脚本文件 `WPeChatGPT.py` 到 IDA 的 plugins 文件夹, 最后重启 IDA 后即可使用。  
 
-**`NOTE`**：需要把 **IDA 的环境**设置为 **python3**。
+**`! NOTE`**：需要把 **IDA 的环境**设置为 **python3**。
 ## 使用方法
 支持在 IDA 中使用**右键、菜单栏或快捷键**任一。
 - 快捷键：  
