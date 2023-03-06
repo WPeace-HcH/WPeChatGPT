@@ -8,6 +8,8 @@
    - 在当前函数中查找是否存在漏洞。
    - 尝试用 python 对漏洞函数生成对应的 EXP。
 - *WPeChatGPT* 插件使用的是 OpenAI 基于GPT训练的 **text-davinci-003** 模型。  
+  *v2.0* 版本后使用 OpenAI 最新的 **gpt-3.5-turbo** 模型。  
+
 ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场失业了。XD  
 
 **PS**：我发现最近这几天 OpenAI-API 服务器的稳定性较差，如果遇到 `"HTTPSConnectionPool(host='api.openai.com', port=443)"` 相关的错误，可以稍等一会儿再尝试。
@@ -16,7 +18,8 @@ ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场�
 |----|----|----|
 |1.0|2023-02-28|Based on Gepetto.|
 |1.1|2023-03-02|1. 删除分析加解密的功能。<br>2. 增加 python 还原函数的功能。<br>3. 修改了一些细节。|
-|1.2|2023-03-03|1. 增加查找函数中二进制漏洞的功能。<br>2. 增加尝试自动生成对应 EXP 的功能。<br>3. 修改了一些细节。<br>**（由于OpenAI服务器原因还未测试上传）**|
+|1.2|2023-03-03|1. 增加查找函数中二进制漏洞的功能。<br>2. 增加尝试自动生成对应 EXP 的功能。<br>3. 修改了一些细节。<br>**（由于OpenAI服务器卡顿原因未测试上传）**|
+|2.0|2023-03-06|1. 完成测试 *v1.2* 版本漏洞相关功能。<br>2. 改用 OpenAI 最新发布的 **gpt-3.5-turbo** 模型|
 ## 安装
 1. 运行如下命令安装所需包。
 ```
@@ -25,7 +28,7 @@ pip install -r ./requirements.txt
 2. 修改脚本 `WPeChatGPT.py` 添加 API key 到变量 ***openai.api_key***。
 3. 复制脚本文件 `WPeChatGPT.py` 到 IDA 的 plugins 文件夹, 最后重启 IDA 后即可使用。  
 
-**`! NOTE`**：需要把 **IDA 的环境**设置为 **python3**。
+**`! NOTE`**：需要把 **IDA 的环境**设置为 **python3**，WPeChatGPT *2.0* 版本后需要使用**最新的 OpenAI Python 包**。
 ## 使用方法
 支持在 IDA 中使用**右键、菜单栏或快捷键**任一。
 - 快捷键：  
