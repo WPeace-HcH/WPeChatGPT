@@ -11,8 +11,6 @@
   *v2.0* 版本后使用 OpenAI 最新的 **gpt-3.5-turbo** 模型。  
 
 ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场失业了。XD  
-
-**PS**：我发现最近这几天 OpenAI-API 服务器的稳定性较差，如果遇到 `"HTTPSConnectionPool(host='api.openai.com', port=443)"` 相关的错误，可以稍等一会儿再尝试。
 ## 更新历史
 |Version|Date|Comment|
 |----|----|----|
@@ -20,6 +18,7 @@ ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场�
 |1.1|2023-03-02|1. 删除分析加解密的功能。<br>2. 增加 python 还原函数的功能。<br>3. 修改了一些细节。|
 |1.2|2023-03-03|1. 增加查找函数中二进制漏洞的功能。<br>2. 增加尝试自动生成对应 EXP 的功能。<br>3. 修改了一些细节。<br>（由于OpenAI服务器卡顿原因未测试上传）|
 |2.0|2023-03-06|1. 完成测试 *v1.2* 版本漏洞相关功能。<br>2. 改用 OpenAI 最新发布的 **gpt-3.5-turbo** 模型|
+|2.1|2023-03-07|Fix API problem about timed out.（详见节***关于 OpenAI-API 报错***）|
 ## 安装
 1. 运行如下命令安装所需包。
 ```
@@ -55,6 +54,23 @@ pip install -r ./requirements.txt
 二进制漏洞查找效果展示：
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/vulnExample.gif" width="790"/>
+## 关于 OpenAI-API 报错
+&emsp;&emsp;从 2023.3.2 开始我经常遇到 API 报错，开始以为是服务器不稳定的问题（因为在我这里时好时坏），但是由于有太多反馈说都遇到了相关错误，所以我先去了 OpenAI 查看 API Status 之后发现其运行情况良好，因此发现可能并不是我所想的服务器问题，于是进行了相关问题的搜索及调试，以下是我对 OpenAI API 连接问题的处理方法：  
+
+&emsp;&emsp;首先前提，插件已经在**科学上网**的条件下运行。
+- 在科学上网的条件下，如果发现插件多次尝试都无法正常连接 API，那么需要查询一下 python 的 urllib3 版本（1.26 版本存在代理问题）。
+   - 可以使用如下命令对 urllib3 进行回退修复：
+   ```
+   pip uninstall urllib3
+   pip install urllib3==1.25.11
+   ```
+- 如果 urllib3 版本没错或重装 1.25 版本还是存在 API 访问问题的话，那么请下载最新版本，对插件指定代理：
+   - 将下面三行代码取消注释，然后把代理地址及端口信息填入 ***proxies*** 变量即可：  
+   ```
+   #print("WPeChatGPT has appointed the proxy.")
+   #proxies = {'http': "http://127.0.0.1:7890", 'https': "http://127.0.0.1:7890"}
+   #openai.proxy = proxies
+   ```
 ## 联系我
 如果使用插件时遇到问题或有任何疑问，欢迎留言或发送邮件联系我。
 ## Acknowledgement
