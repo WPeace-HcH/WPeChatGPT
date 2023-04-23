@@ -1,6 +1,6 @@
-# WPeChatGPT
 **English | [中文](./README.ZH_CN.md)**  
 
+# WPeChatGPT
 - **IDA plugin** based on the same model as ChatGPT, using the gpt-3.5-turbo model released by OpenAI, can help analysts quickly analyze binary files.
 
 - **Features** currently supported by *WPeChatGPT* include:
