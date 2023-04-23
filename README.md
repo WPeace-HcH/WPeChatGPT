@@ -1,104 +1,106 @@
 # WPeChatGPT
-- 基于与 ChatGPT 相同模型的**IDA 插件**，使用 OpenAI 发布的 gpt-3.5-turbo 模型，可以有助于分析师们快速分析二进制文件。
+**English | [中文](./README.ZH_CN.md)**  
 
-- 当前 *WPeChatGPT* 支持的**功能**包括：
-   - 分析函数的使用环境、预期目的、函数功能。
-   - 重命名函数的变量。
-   - 尝试用 python3 对函数进行还原，此功能主要是针对较小块的函数（如一个异或解密函数）。
-   - 在当前函数中查找是否存在漏洞。
-   - 尝试用 python 对漏洞函数生成对应的 EXP。
-   - 利用 GPT **全自动分析二进制文件**，具体参考节 ***Auto-WPeGPT***。
-- *WPeChatGPT* 插件使用的是 OpenAI 基于GPT训练的 **text-davinci-003** 模型。  
-  *v2.0* 版本后使用 OpenAI 最新的 **gpt-3.5-turbo** 模型（The same as **ChatGPT**）。  
+- **IDA plugin** based on the same model as ChatGPT, using the gpt-3.5-turbo model released by OpenAI, can help analysts quickly analyze binary files.
 
-ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场失业了。XD  
-## 更新历史
+- **Features** currently supported by *WPeChatGPT* include:
+    - Analyze the usage environment, intended purpose, and function of the function.
+    - Rename variables of functions.
+    - Attempt to restore the function with python3, this function is mainly for functions of smaller blocks (such as an XOR decryption function).
+    - Look for vulnerabilities in the current function.
+    - Try to use python to generate the corresponding EXP for the vulnerable function.
+    - Utilize GPT **Automatically analyze binary files**, see section ***Auto-WPeGPT*** for details.
+- The *WPeChatGPT* plugin uses OpenAI's **text-davinci-003** model trained on GPT.
+   After *v2.0* use OpenAI's latest **gpt-3.5-turbo** model (The same as **ChatGPT**).
+
+ChatGPT's analysis results **for reference only**, otherwise we analysts would be out of work on the spot. XD
+## Update History
 |Version|Date|Comment|
 |----|----|----|
 |1.0|2023-02-28|Based on Gepetto.|
-|1.1|2023-03-02|1. 删除分析加解密的功能。<br>2. 增加 python 还原函数的功能。<br>3. 修改了一些细节。|
-|1.2|2023-03-03|1. 增加查找函数中二进制漏洞的功能。<br>2. 增加尝试自动生成对应 EXP 的功能。<br>3. 修改了一些细节。<br>（由于OpenAI服务器卡顿原因未测试上传）|
-|2.0|2023-03-06|1. 完成测试 *v1.2* 版本漏洞相关功能。<br>2. 改用 OpenAI 最新发布的 **gpt-3.5-turbo** 模型。|
-|2.1|2023-03-07|修复 OpenAI-API 的 timed out 问题。（详见节***关于 OpenAI-API 报错***）|
-|2.3|2023-04-23|添加 **Auto-WPeGPT v0.1**，支持对二进制文件的自动分析功能。|
-## 安装
-1. 运行如下命令安装所需包。
+|1.1|2023-03-02|1. Delete the function of analyzing encryption and decryption. <br>2. Increase the function of python restore function. <br>3. Modified some details. |
+|1.2|2023-03-03|1. Added the function of finding binary vulnerabilities in functions. <br>2. Increase the function of trying to automatically generate the corresponding EXP. <br>3. Modified some details. <br>(The upload was not tested due to the OpenAI server lag)|
+|2.0|2023-03-06|1. Complete the testing of *v1.2* version vulnerability related functions. <br>2. Switch to the latest **gpt-3.5-turbo** model released by OpenAI. |
+|2.1|2023-03-07|Fix the timed out issue of OpenAI-API. (See section ***About OpenAI-API Error Reporting***) |
+|2.3|2023-04-23|Added **Auto-WPeGPT v0.1** to support automatic analysis of binary files. |
+## Install
+1. Run the following command to install the required packages.
 ```
 pip install -r ./requirements.txt
 ```
-2. 修改脚本 `WPeChatGPT.py`，添加 API key 到变量 ***openai.api_key***。
-3. 复制脚本文件 `WPeChatGPT.py` 及文件夹 `Auto-WPeGPT_WPeace` 到 IDA 的 plugins 文件夹, 最后重启 IDA 后即可使用。  
+2. Modify the script `WPeChatGPT.py`, add your API key to the variable ***openai.api_key***, change the variable ***ZH_CN*** to False. (Default Chinese)
+3. Copy the script file `WPeChatGPT.py` and the folder `Auto-WPeGPT_WPeace` to the plugins folder of IDA, and finally restart IDA to use it.
 
-**`! NOTE`**：需要把 **IDA 的环境**设置为 **python3**，WPeChatGPT *2.0* 版本后需要使用**最新的 OpenAI Python 包**。
-## 使用方法
-支持在 IDA 中使用**右键、菜单栏或快捷键**任一。
-- 快捷键：  
-  `函数分析 = "Ctrl-Alt-G"`  
-  `重命名函数变量 = "Ctrl-Alt-R"`  
-  `二进制漏洞查找 = "Ctrl-Alt-E"`  
+**`! NOTE`**: You need to set the **IDA environment** to **python3**, and you need to use the **latest OpenAI Python package** after WPeChatGPT *2.0* version.
+## Usage
+Supports using any of the **right click, menu bar or shortcut keys** in IDA.
+- hot key:  
+  `Function analysis = "Ctrl-Alt-G"`  
+  `Rename function variables = "Ctrl-Alt-R"`  
+  `Vulnerability finding = "Ctrl-Alt-E"`  
 
-- 伪代码窗口右键：
+- Right click on the pseudocode window:
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInPseudocode.png" width="788"/>
 
-- 菜单栏：Edit $\Rightarrow$ WPeChatGPT
+- Menu bar: Edit $\Rightarrow$ WPeChatGPT
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInEdit.png" width="360"/>
 ## Auto-WPeGPT
-**更新历史：**
+**Update History:**
 |Version|Date|Comment|
 |----|----|----|
-|0.1|2023-04-23|初始版本。|
+|0.1|2023-04-23|Initial release. |
 
-**使用方法：** 在菜单栏找到 Auto-WPeGPT 后点击即可，输出完成提示后可在对应文件夹（*"WPe_+IDB名称"*）中找到分析结果。  
-- 菜单栏：Edit $\Rightarrow$ WPeChatGPT $\Rightarrow$ Auto-WPeGPT
+**How to use:** Find Auto-WPeGPT in the menu bar and click it. After the output is complete, you can find the analysis results in the corresponding folder (*"WPe_+IDB name"*).
+- Menu bar: Edit $\Rightarrow$ WPeChatGPT $\Rightarrow$ Auto-WPeGPT
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/auto-wpegpt_menu.png" width="788"/>
 
-输出文件夹中的每个文件含义：
+The meaning of each file in the output folder:
 ```
-GPT-Result.txt -> Auto-WPeGPT 分析结果
-funcTree.txt -> 函数调用树形结构
-mainFuncTree.txt -> 主函数树结构
-effectiveStrings.txt -> 二进制文件中的可疑字符串
+GPT-Result.txt -> Auto-WPeGPT analysis results
+funcTree.txt -> function call tree structure
+mainFuncTree.txt -> main function tree structure
+effectiveStrings.txt -> Suspicious strings in the binary
 ```
 
-**效果展示：** 
+**Show results:** 
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/autogptExample.gif" width="788"/>
 
-经过测试，v0.1 版本对函数较少的文件分析效果较好，如遇函数量大的二进制文件，会产生 tokens 超出范围的问题，在下个版本中将想办法进行改进。
+After testing, the v0.1 version has a better analysis effect on files with fewer functions. In case of binary files with a large number of functions, tokens will exceed the range. We will try to improve it in the next version.
 
-## 示例
-使用方式：
+## Example
+How to use:
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/useExample.gif" width="790"/>
 
-函数分析效果展示：
+Function analysis effect display:
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/resultExample.gif" width="790"/>
 
-二进制漏洞查找效果展示：
+Vulnerability finding effect display:
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/vulnExample.gif" width="790"/>
-## 关于 OpenAI-API 报错
-&emsp;&emsp;从 2023.3.2 开始我经常遇到 API 报错，开始以为是服务器不稳定的问题（因为在我这里时好时坏），但是由于有太多反馈说都遇到了相关错误，所以我先去了 OpenAI 查看 API Status 之后发现其运行情况良好，因此发现可能并不是我所想的服务器问题，于是进行了相关问题的搜索及调试，以下是我对 OpenAI API 连接问题的处理方法：  
+## About OpenAI-API error reporting
+&emsp;&emsp;From March 2, 2023, I often encounter API errors, and I thought it was a problem of server instability (because I have ups and downs here), but because there are too many feedbacks that I have encountered related errors, so I I first went to OpenAI to check the API Status and found that it was running well, so I found that it might not be the server problem I thought, so I searched and debugged related problems. The following is how I dealt with the OpenAI API connection problem:
 
-&emsp;&emsp;首先前提，插件已经在**科学上网**的条件下运行。
-- 在科学上网的条件下，如果发现插件多次尝试都无法正常连接 API，那么需要查询一下 python 的 urllib3 版本（1.26 版本存在代理问题）。
-   - 可以使用如下命令对 urllib3 进行回退修复：
-   ```
-   pip uninstall urllib3
-   pip install urllib3==1.25.11
-   ```
-- 如果 urllib3 版本没错或重装 1.25 版本还是存在 API 访问问题的话，那么请下载最新版本，对插件指定代理：
-   - 将下面三行代码取消注释，然后把代理地址及端口信息填入 ***proxies*** 变量即可：  
-   ```
-   #print("WPeChatGPT has appointed the proxy.")
-   #proxies = {'http': "http://127.0.0.1:7890", 'https': "http://127.0.0.1:7890"}
-   #openai.proxy = proxies
-   ```
-## 联系我
-如果使用插件时遇到问题或有任何疑问，欢迎留言或发送邮件联系我。
-## 致谢
-受到 *Gepetto* 的启发，该项目地址为：https://github.com/JusticeRage/Gepetto 。
+&emsp;&emsp;First of all, the plug-in has been running under the conditions of **Scientific Online**.
+- Under the condition of scientific Internet access, if you find that the plug-in fails to connect to the API after many attempts, you need to check the urllib3 version of python (version 1.26 has a proxy problem).
+    - You can use the following commands to perform a fallback fix for urllib3:
+    ```
+    pip uninstall urllib3
+    pip install urllib3==1.25.11
+    ```
+- If the urllib3 version is correct or there are still API access problems after reinstalling the 1.25 version, please download the latest version and specify a proxy for the plugin:
+    - Uncomment the following three lines of code, then fill in the proxy address and port information into the ***proxies*** variable:
+    ```
+    #print("WPeChatGPT has appointed the proxy.")
+    #proxies = {'http': "http://127.0.0.1:7890", 'https': "http://127.0.0.1:7890"}
+    #openai.proxy = proxies
+    ```
+## Contact me
+If you encounter problems or have any questions when using the plugin, please leave a message or send me an email.
+## Acknowledgment
+The project is based on *Gepetto* and inspired by it, you can visit https://github.com/JusticeRage/Gepetto to learn about the original method.
