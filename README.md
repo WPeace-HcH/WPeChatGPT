@@ -1,5 +1,5 @@
 # WPeChatGPT
-- **A plugin for IDA** that can help to analyze binary file, it based on Gepetto which uses OpenAI's davinci-003 model.
+- 基于与 ChatGPT 相同模型的**IDA 插件**，使用 OpenAI 发布的 gpt-3.5-turbo 模型，可以帮助分析师们分析二进制文件.
 
 - 当前 *WPeChatGPT* 支持的**功能**包括：
    - 分析函数的使用环境、预期目的、函数功能。
@@ -7,6 +7,7 @@
    - 尝试用 python3 对函数进行还原，此功能主要是针对较小块的函数（如一个异或解密函数）。
    - 在当前函数中查找是否存在漏洞。
    - 尝试用 python 对漏洞函数生成对应的 EXP。
+   - 利用 GPT **全自动分析二进制文件**，具体参考节 ***Auto-WPeGPT***。
 - *WPeChatGPT* 插件使用的是 OpenAI 基于GPT训练的 **text-davinci-003** 模型。  
   *v2.0* 版本后使用 OpenAI 最新的 **gpt-3.5-turbo** 模型（The same as **ChatGPT**）。  
 
@@ -18,7 +19,8 @@ ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场�
 |1.1|2023-03-02|1. 删除分析加解密的功能。<br>2. 增加 python 还原函数的功能。<br>3. 修改了一些细节。|
 |1.2|2023-03-03|1. 增加查找函数中二进制漏洞的功能。<br>2. 增加尝试自动生成对应 EXP 的功能。<br>3. 修改了一些细节。<br>（由于OpenAI服务器卡顿原因未测试上传）|
 |2.0|2023-03-06|1. 完成测试 *v1.2* 版本漏洞相关功能。<br>2. 改用 OpenAI 最新发布的 **gpt-3.5-turbo** 模型。|
-|2.1|2023-03-07|Fix API problem about timed out.（详见节***关于 OpenAI-API 报错***）|
+|2.1|2023-03-07|修复 OpenAI-API 的 timed out 问题。（详见节***关于 OpenAI-API 报错***）|
+|2.3|2023-04-23|添加 Auto-WPeGPT 自动分析功能。（详见节***Auto-WPeGPT***）|
 ## 安装
 1. 运行如下命令安装所需包。
 ```
@@ -42,6 +44,29 @@ pip install -r ./requirements.txt
 - 菜单栏：Edit $\Rightarrow$ WPeChatGPT
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInEdit.png" width="360"/>
+## Auto-WPeGPT
+**更新历史：**
+|Version|Date|Comment|
+|----|----|----|
+|0.1|2023-04-23|初始版本。|
+
+**使用方法：** 在菜单栏找到 Auto-WPeGPT 后点击即可，输出完成提示后可在对应文件夹（*"WPe_+IDB名称"*）中找到分析结果。  
+- 菜单栏：Edit $\Rightarrow$ WPeChatGPT $\Rightarrow$ Auto-WPeGPT
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/auto-wpegpt_menu.png" width="788"/>
+
+输出文件夹中的每个文件含义：
+```
+GPT-Result.txt -> Auto-WPeGPT 分析结果
+funcTree.txt -> 函数调用树形结构
+mainFuncTree.txt -> 主函数树结构
+effectiveStrings.txt -> 二进制文件中的可疑字符串
+```
+
+**效果展示：** 
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/autogptExample.gif" width="788"/>
+
 ## 示例
 使用方式：
 
@@ -73,5 +98,5 @@ pip install -r ./requirements.txt
    ```
 ## 联系我
 如果使用插件时遇到问题或有任何疑问，欢迎留言或发送邮件联系我。
-## Acknowledgement
-The project is based on *Gepetto* and inspired by it, you can visit https://github.com/JusticeRage/Gepetto to learn about the original method.
+## 致谢
+受到 *Gepetto* 的启发，该项目地址为：https://github.com/JusticeRage/Gepetto 。
