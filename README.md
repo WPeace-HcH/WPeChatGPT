@@ -1,5 +1,5 @@
 # WPeChatGPT
-- 基于与 ChatGPT 相同模型的**IDA 插件**，使用 OpenAI 发布的 gpt-3.5-turbo 模型，可以帮助分析师们分析二进制文件.
+- 基于与 ChatGPT 相同模型的**IDA 插件**，使用 OpenAI 发布的 gpt-3.5-turbo 模型，可以有助于分析师们快速分析二进制文件。
 
 - 当前 *WPeChatGPT* 支持的**功能**包括：
    - 分析函数的使用环境、预期目的、函数功能。
@@ -66,6 +66,8 @@ effectiveStrings.txt -> 二进制文件中的可疑字符串
 **效果展示：** 
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/autogptExample.gif" width="788"/>
+
+经过测试，v0.1 版本对函数较少的文件分析效果较好，如遇函数量大的二进制文件，会产生 tokens 超出范围的问题，在下个版本中将想办法进行改进。
 
 ## 示例
 使用方式：
