@@ -18,11 +18,11 @@ ChatGPT's analysis results **for reference only**, otherwise we analysts would b
 |Version|Date|Comment|
 |----|----|----|
 |1.0|2023-02-28|Based on Gepetto.|
-|1.1|2023-03-02|1. Delete the function of analyzing encryption and decryption. <br>2. Increase the function of python restore function. <br>3. Modified some details. |
+|1.1|2023-03-02|1. Delete the function of analyzing encryption and decryption. <br>2. Increase the function of python restore function. <br>3. Modified some details.|
 |1.2|2023-03-03|1. Added the function of finding binary vulnerabilities in functions. <br>2. Increase the function of trying to automatically generate the corresponding EXP. <br>3. Modified some details. <br>(The upload was not tested due to the OpenAI server lag)|
-|2.0|2023-03-06|1. Complete the testing of *v1.2* version vulnerability related functions. <br>2. Switch to the latest **gpt-3.5-turbo** model released by OpenAI. |
-|2.1|2023-03-07|Fix the timed out issue of OpenAI-API. (See section ***About OpenAI-API Error Reporting***) |
-|2.3|2023-04-23|Add the **Auto-WPeGPT v0.1** to support automatic analysis of binary files. |
+|2.0|2023-03-06|1. Complete the testing of *v1.2* version vulnerability related functions. <br>2. Switch to the latest **gpt-3.5-turbo** model released by OpenAI.|
+|2.1|2023-03-07|Fix the timed out issue of OpenAI-API. (See section ***About OpenAI-API Error Reporting***)|
+|2.3|2023-04-23|Add the **Auto-WPeGPT v0.1** to support automatic analysis of binary files.<br>(Package *anytree* needs to be added from this version, use *requirements.txt* or *pip install anytree*)|
 ## Install
 1. Run the following command to install the required packages.
 ```
