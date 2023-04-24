@@ -44,6 +44,20 @@ pip install -r ./requirements.txt
 - 菜单栏：Edit $\Rightarrow$ WPeChatGPT
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInEdit.png" width="360"/>
+
+## 示例
+使用方式：
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/useExample.gif" width="790"/>
+
+函数分析效果展示：
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/resultExample.gif" width="790"/>
+
+二进制漏洞查找效果展示：
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/vulnExample.gif" width="790"/>
+
 ## Auto-WPeGPT
 **更新历史：**
 |Version|Date|Comment|
@@ -69,18 +83,6 @@ effectiveStrings.txt -> 二进制文件中的可疑字符串
 
 经过测试，v0.1 版本对函数较少的文件分析效果较好，如遇函数量大的二进制文件，会产生 tokens 超出范围的问题，在下个版本中将想办法进行改进。
 
-## 示例
-使用方式：
-
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/useExample.gif" width="790"/>
-
-函数分析效果展示：
-
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/resultExample.gif" width="790"/>
-
-二进制漏洞查找效果展示：
-
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/vulnExample.gif" width="790"/>
 ## 关于 OpenAI-API 报错
 &emsp;&emsp;从 2023.3.2 开始我经常遇到 API 报错，开始以为是服务器不稳定的问题（因为在我这里时好时坏），但是由于有太多反馈说都遇到了相关错误，所以我先去了 OpenAI 查看 API Status 之后发现其运行情况良好，因此发现可能并不是我所想的服务器问题，于是进行了相关问题的搜索及调试，以下是我对 OpenAI API 连接问题的处理方法：  
 
