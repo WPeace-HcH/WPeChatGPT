@@ -46,6 +46,20 @@ Supports using any of the **right click, menu bar or shortcut keys** in IDA.
 - Menu bar: Edit $\Rightarrow$ WPeChatGPT
 
 &emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/menuInEdit.png" width="360"/>
+
+## Example
+How to use:
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/useExample.gif" width="790"/>
+
+Function analysis effect display:
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/resultExample.gif" width="790"/>
+
+Vulnerability finding effect display:
+
+&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/vulnExample.gif" width="790"/>
+
 ## Auto-WPeGPT
 **Update History:**
 |Version|Date|Comment|
@@ -71,18 +85,6 @@ effectiveStrings.txt -> Suspicious strings in the binary
 
 After testing, the v0.1 version has a better analysis effect on files with fewer functions. In case of binary files with a large number of functions, tokens will exceed the range. We will try to improve it in the next version.
 
-## Example
-How to use:
-
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/useExample.gif" width="790"/>
-
-Function analysis effect display:
-
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/resultExample.gif" width="790"/>
-
-Vulnerability finding effect display:
-
-&emsp;&emsp;<img src="https://github.com/WPeace-HcH/WPeChatGPT/blob/main/IMG/vulnExample.gif" width="790"/>
 ## About OpenAI-API error reporting
 &emsp;&emsp;From March 2, 2023, I often encounter API errors, and I thought it was a problem of server instability (because I have ups and downs here), but because there are too many feedbacks that I have encountered related errors, so I I first went to OpenAI to check the API Status and found that it was running well, so I found that it might not be the server problem I thought, so I searched and debugged related problems. The following is how I dealt with the OpenAI API connection problem:
 
