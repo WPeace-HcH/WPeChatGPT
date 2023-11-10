@@ -23,6 +23,7 @@ ChatGPT's analysis results **for reference only**, otherwise we analysts would b
 |2.0|2023-03-06|1. Complete the testing of *v1.2* version vulnerability related functions. <br>2. Switch to the latest **gpt-3.5-turbo** model released by OpenAI.|
 |2.1|2023-03-07|Fix the timed out issue of OpenAI-API. (See section ***About OpenAI-API Error Reporting***)|
 |2.3|2023-04-23|Add the **Auto-WPeGPT v0.1** to support automatic analysis of binary files.<br>(Package *anytree* needs to be added from this version, use *requirements.txt* or *pip install anytree*)|
+|2.4|2023-11-10|1. Changed some display details.<br>2. Update **Auto-WPeGPT v0.2**.|
 ## Install
 1. Run the following command to install the required packages.
 ```
@@ -64,7 +65,8 @@ Vulnerability finding effect display:
 **Update History:**
 |Version|Date|Comment|
 |----|----|----|
-|0.1|2023-04-23|Initial release. |
+|0.1|2023-04-23|Initial release.|
+|0.2|2023-11-10|1. Improve the recognition of valid strings.<br>2. Improve the analysis of function call trees.<br>3. Add recognition for import functions.|
 
 **How to use:** Find Auto-WPeGPT in the menu bar and click it. After the output is complete, you can find the analysis results in the corresponding folder (*"WPe_+IDB name"*).
 - Menu bar: Edit $\Rightarrow$ WPeChatGPT $\Rightarrow$ Auto-WPeGPT
