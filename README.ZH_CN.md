@@ -21,6 +21,7 @@ ChatGPT 的分析结果**仅供参考**，不然我们这些分析师就当场�
 |2.0|2023-03-06|1. 完成测试 *v1.2* 版本漏洞相关功能。<br>2. 改用 OpenAI 最新发布的 **gpt-3.5-turbo** 模型。|
 |2.1|2023-03-07|修复 OpenAI-API 的 timed out 问题。（详见节***关于 OpenAI-API 报错***）|
 |2.3|2023-04-23|添加 **Auto-WPeGPT v0.1**，支持对二进制文件的自动分析功能。<br>（从此版本需要添加包 *anytree*，使用 *requirements.txt* 或 *pip install anytree*）|
+|2.4|2023-11-10|1. 修改了一些显示细节。<br>2. 更新 **Auto-WPeGPT v0.2**。|
 ## 安装
 1. 运行如下命令安装所需包。
 ```
@@ -63,6 +64,7 @@ pip install -r ./requirements.txt
 |Version|Date|Comment|
 |----|----|----|
 |0.1|2023-04-23|初始版本。|
+|0.2|2023-11-10|1. 改进对有效字符串的识别。<br>2. 改进对函数调用树的分析。<br>3. 增添对导入函数的识别。|
 
 **使用方法：** 在菜单栏找到 Auto-WPeGPT 后点击即可，输出完成提示后可在对应文件夹（*"WPe_+IDB名称"*）中找到分析结果。  
 - 菜单栏：Edit $\Rightarrow$ WPeChatGPT $\Rightarrow$ Auto-WPeGPT
