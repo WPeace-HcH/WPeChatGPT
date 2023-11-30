@@ -24,6 +24,8 @@ openai.api_key = "ENTER_OPEN_API_KEY_HERE"
 #print("WPeChatGPT has appointed the proxy.")
 #proxies = {'http': "http://127.0.0.1:7890", 'https': "http://127.0.0.1:7890"}
 #openai.proxy = proxies
+# Set proxyAPI if you need.
+#openai.api_base = "base_url"
 
 
 # WPeChatGPT 分析解释函数
