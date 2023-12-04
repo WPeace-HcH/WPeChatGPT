@@ -20,11 +20,11 @@ import Auto_WPeGPT
 ZH_CN = True
 # Set your API key here, or put in in the OPENAI_API_KEY environment variable.
 openai.api_key = "ENTER_OPEN_API_KEY_HERE"
-# Set OpenAI-Proxy if necessary.
+# Set your own proxy if necessary. (e.g. Clash)
 #print("WPeChatGPT has appointed the proxy.")
 #proxies = {'http': "http://127.0.0.1:7890", 'https': "http://127.0.0.1:7890"}
 #openai.proxy = proxies
-# Set proxyAPI if you need.
+# Set reverse proxy URL if you need. (e.g. Azure)
 #openai.api_base = "base_url"
 
 
